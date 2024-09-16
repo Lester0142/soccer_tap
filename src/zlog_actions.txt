@@ -1,0 +1,24 @@
+2024-09-16 15:12:19: [edit] ['firstTeam', 'secondTeam', 0, 3]
+2024-09-16 15:12:19: [edit] ['thirdTeam', 'fourthTeam', 1, 1]
+2024-09-16 15:14:52: [edit] ['firstTeam', 'secondTeam', 0, 83]
+2024-09-16 15:14:52: [edit] ['thirdTeam', 'fourthTeam', 1, 1]
+2024-09-16 15:16:22: [edit] ['firstTeam', 'secondTeam', 0, 83]
+2024-09-16 15:16:22: [edit] ['thirdTeam', 'fourthTeam', 1, 1]
+2024-09-16 15:16:32: [edit] ['firstTeam', 'secondTeam', 0, 83]
+2024-09-16 15:16:32: [edit] ['thirdTeam', 'fourthTeam', 1, 1]
+2024-09-16 15:17:06: [edit] ['firstTeam', 'secondTeam', 0, 83]
+2024-09-16 15:17:06: [edit] ['thirdTeam', 'fourthTeam', 1, 1]
+2024-09-16 15:17:17: [edit] ['firstTeam', 'secondTeam', 0, 83]
+2024-09-16 15:17:17: [edit] ['thirdTeam', 'fourthTeam', 1, 1]
+2024-09-16 15:17:45: [edit] ['firstTeam', 'secondTeam', 0, 830]
+2024-09-16 15:17:45: [edit] ['thirdTeam', 'fourthTeam', 1, 1]
+2024-09-16 15:18:24: [edit] ['firstTeam', 'secondTeam', 0, 83]
+2024-09-16 15:18:24: [edit] ['thirdTeam', 'fourthTeam', 1, 1]
+2024-09-16 15:33:13 | [insert]: 
+2024-09-16 15:33:13 | [insert]: 
+2024-09-16 15:33:13 | [insert]: 
+2024-09-16 15:33:14 | [insert]: 
+2024-09-16 15:35:56 | [edit]: ['firstTeam', datetime.date(2000, 5, 17), 2]
+2024-09-16 15:35:56 | [edit]: ['secondTeam', datetime.date(2000, 2, 7), 2]
+2024-09-16 15:35:56 | [edit]: ['thirdTeam', datetime.date(2000, 4, 24), 1]
+2024-09-16 15:35:56 | [edit]: ['fourthTeam', datetime.date(2000, 1, 24), 1]
