@@ -6,12 +6,13 @@ class Team(models.Model):
     """
     Team Model: holds the team's information
     1. name: team's name
-    2. group: group it belongs to
-    3. date: date of registration
+    2. date: date of registration
+    3. group: group it belongs to
     """
-    name = models.CharField(max_length=100)
-    group = models.IntegerField()
+    name = models.CharField(max_length=100, primary_key=True)
     date = models.DateField()
+    group = models.IntegerField()
+
 
 class Match(models.Model):
     """
@@ -19,10 +20,10 @@ class Match(models.Model):
     1. team_one: first team one name
     2. team_two: team two name
     3. goals_one: goals scored by team one
-    4. goals_two: oals scored by team two
+    4. goals_two: goals scored by team two
     """
-    team_one = models.CharField(max_length=100)
-    team_two = models.CharField(max_length=100)
+    team_one = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='t1')
+    team_two = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='t2')
     goal_one = models.PositiveIntegerField()
     goal_two = models.PositiveIntegerField()
 
@@ -39,11 +40,13 @@ class Result(models.Model):
     7. point: points according to first calculation system
     8. point_alt: points according to second calculation system
     """
-    name = models.CharField(max_length=100)
+    name = models.ForeignKey(Team, on_delete=models.CASCADE)
     goal = models.PositiveIntegerField()
     date = models.DateField()
+    group = models.IntegerField()
     win = models.PositiveSmallIntegerField()
     draw = models.PositiveSmallIntegerField()
     loss = models.PositiveSmallIntegerField()
     point = models.PositiveSmallIntegerField()
     point_alt = models.PositiveSmallIntegerField()
+    rank = models.PositiveSmallIntegerField()
