@@ -30,7 +30,7 @@ const Form = ({ onSubmit }) => {
             name="textInput"
             value={inputValue}
             onChange={handleChange}
-            className="form-control"
+            className="form-control_custom"
           />
           {error && <p className="error">{error}</p>}
         </div>

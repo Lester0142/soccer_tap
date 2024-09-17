@@ -50,3 +50,4 @@ class Result(models.Model):
     point = models.PositiveSmallIntegerField()
     point_alt = models.PositiveSmallIntegerField()
     rank = models.PositiveSmallIntegerField()
+    game = models.PositiveSmallIntegerField()

@@ -181,3 +181,48 @@ thirdTeam fourthTeam 1 1
 2024-09-17 10:23:01 | [raw input]: 2thirdTeam 2thirdTeam 01/03 1
 2024-09-17 10:23:01 | [update]: ['2thirdTeam', '2thirdTeam', datetime.date(2000, 3, 1), 1]
 2024-09-17 10:23:51 | [database wiped]: ========== Empty Database ==========
+2024-09-17 14:44:06 | [raw input]: firstTeam 17/05 2
+secondTeam 07/02 2
+thirdTeam 24/04 1
+fourthTeam 24/01 1
+
+2024-09-17 14:44:06 | [insert]: ['firstTeam', datetime.date(2000, 5, 17), 2]
+2024-09-17 14:44:06 | [insert]: ['secondTeam', datetime.date(2000, 2, 7), 2]
+2024-09-17 14:44:06 | [insert]: ['thirdTeam', datetime.date(2000, 4, 24), 1]
+2024-09-17 14:44:06 | [insert]: ['fourthTeam', datetime.date(2000, 1, 24), 1]
+2024-09-17 16:48:48 | [raw input]: firstTeam1 17/05 2
+secondTeam1 07/02 2
+thirdTeam1 24/04 1
+fourthTeam1 24/01 1
+
+2024-09-17 16:48:48 | [insert]: ['firstTeam1', datetime.date(2000, 5, 17), 2]
+2024-09-17 16:48:48 | [insert]: ['secondTeam1', datetime.date(2000, 2, 7), 2]
+2024-09-17 16:48:48 | [insert]: ['thirdTeam1', datetime.date(2000, 4, 24), 1]
+2024-09-17 16:48:48 | [insert]: ['fourthTeam1', datetime.date(2000, 1, 24), 1]
+2024-09-17 16:49:02 | [raw input]: firstTeam2 17/05 2
+secondTeam2 07/02 2
+thirdTeam2 24/04 1
+fourthTeam2 24/01 1
+
+2024-09-17 16:49:02 | [insert]: ['firstTeam2', datetime.date(2000, 5, 17), 2]
+2024-09-17 16:49:02 | [insert]: ['secondTeam2', datetime.date(2000, 2, 7), 2]
+2024-09-17 16:49:02 | [insert]: ['thirdTeam2', datetime.date(2000, 4, 24), 1]
+2024-09-17 16:49:02 | [insert]: ['fourthTeam2', datetime.date(2000, 1, 24), 1]
+2024-09-17 16:57:47 | [raw input]: firstTeam3 17/05 2
+secondTeam3 07/02 2
+thirdTeam3 24/04 1
+fourthTeam3 24/01 1
+2024-09-17 16:57:47 | [insert]: ['firstTeam3', datetime.date(2000, 5, 17), 2]
+2024-09-17 16:57:47 | [insert]: ['secondTeam3', datetime.date(2000, 2, 7), 2]
+2024-09-17 16:57:47 | [insert]: ['thirdTeam3', datetime.date(2000, 4, 24), 1]
+2024-09-17 16:57:47 | [insert]: ['fourthTeam3', datetime.date(2000, 1, 24), 1]
+2024-09-17 17:02:49 | [raw input]: firstTeam secondTeam 0 3
+thirdTeam fourthTeam 1 1
+
+2024-09-17 17:02:49 | [insert]: ['firstTeam', 'secondTeam', 0, 3]
+2024-09-17 17:02:49 | [insert]: ['thirdTeam', 'fourthTeam', 1, 1]
+2024-09-17 17:30:34 | [raw input]: firstTeam2 secondTeam2 2 20
+thirdTeam2 fourthTeam2 22 222
+
+2024-09-17 17:30:34 | [insert]: ['firstTeam2', 'secondTeam2', 2, 20]
+2024-09-17 17:30:34 | [insert]: ['thirdTeam2', 'fourthTeam2', 22, 222]

@@ -1,4 +1,8 @@
-import React, { Component, useMemo, useState, useEffect } from "react";
+import React, { Component } from "react";
+import TableContainer from "./TableContainer";
+import { getColumnResult } from "./Column";
+import { Container } from "reactstrap";
+import './Home.css';
 
 class Home extends Component {
   constructor(props) {
@@ -31,20 +35,12 @@ class Home extends Component {
   }
 
   render() {
+    const columns = getColumnResult();
     const { data, loaded, error } = this.state;
     return (
-      <div>
-        Hello from Results
-        <ul>
-          {this.state.data.map((each) => {
-            return (
-              <li key={each.id}>
-                {each.name} - {each.goal} - {each.win}
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      <Container style={{ marginTop: 20 }}>
+        <TableContainer columns={columns} data={data} />
+      </Container>
     );
   }
 }

@@ -1,0 +1,26 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.container_custom {
+  display: flex;
+  flex-direction: column;
+  height: 90vh; /* Full viewport height */
+}
+
+.table-container_custom {
+  flex: 0.8; /* Takes up available space */
+  overflow: auto; /* Adds scroll if needed */
+  width: 100%;
+}
+
+.form-container_custom {
+  padding: 16px;
+  background-color: #f0f0f0; /* Optional: background color for the form area */
+}
+
+.highlight-row {
+  background-color: #ffff99; /* Light yellow background for highlighted rows */
+}

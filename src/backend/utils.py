@@ -115,14 +115,14 @@ def group_ranker():
     4. order by points alt desc
     5. order by date registered asc
     """
-
-    # update points and update alt points
+    # update points and update alt points and games played
     results = Result.objects.annotate(
         point_temp = F('win') * 3 + F('draw'),
-        point_alt_temp = (F('win') * 5) + (F('draw') * 3) + F('loss')
+        point_alt_temp = (F('win') * 5) + (F('draw') * 3) + F('loss'),
+        game_temp =  F('win') + F('draw') + F('loss')
     )
     for result in results:
-        Result.objects.filter(name=result.name).update(point=result.point_temp, point_alt = result.point_alt_temp)
+        Result.objects.filter(name=result.name).update(point=result.point_temp, point_alt = result.point_alt_temp, game=result.game_temp)
 
     # update rank
     results = Result.objects.annotate(row_number=Window(

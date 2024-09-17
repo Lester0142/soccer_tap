@@ -1,80 +1,97 @@
 import React, { Component } from "react";
 import Form from "./Form";
 import getCookie from "./csrftoken";
+import TableContainer from "./TableContainer";
+import { getColumnTeam } from "./Column";
+import './Team_Match.css';
 
 class Team extends Component {
   constructor(props) {
-      super(props);
-      this.state = {
-        data: [],
-        loaded: false,
-        placeholder: "Loading"
-      };
-    }
+    super(props);
+    this.state = {
+      data: [],
+      loaded: false,
+      placeholder: "Loading",
+      columns: [],
+      error: null
+    };
+  }
 
-  componentDidMount() {
+  // Data fetching method
+  fetchData = () => {
     fetch("api/team")
-    .then((response) => {
-      if (response.status > 400) {
-        return this.setState(() => {
-          return { placeholder: "Something went wrong!" };
-        });
-      }
-      return response.json();
-    })
-    .then((data) => {
-      this.setState(() => {
-        return {
+      .then((response) => {
+        if (response.status > 400) {
+          throw new Error("Something went wrong!");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        this.setState({
           data,
           loaded: true,
-        };
+          placeholder: null,
+          error: null
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          placeholder: "Something went wrong!",
+          error: error.message
+        });
       });
-    });
-}
+  };
 
-handleFormSubmit = (textValue) => {
-  fetch("insert/team", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      'X-CSRFToken': getCookie('csrftoken'),
-    },
-    body: JSON.stringify({ content: textValue }),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
+  componentDidMount() {
+    this.setState({ columns: getColumnTeam() });
+    this.fetchData(); // Initial data fetch
+  }
+
+  handleFormSubmit = (textValue) => {
+    fetch("insert/team", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": getCookie("csrftoken"),
+      },
+      body: JSON.stringify({ content: textValue }),
     })
-    .then((value) => {
-      if (value.status == 200){
-        alert("Data submitted successfully!");
-      } else {
-        alert("Not updated properly. Please try again...")
-      }
-    })
-    .catch((error) => {
-      alert(`An error occurred: ${error.message}`);
-    });
-};
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((value) => {
+        if (value.status === 200) {
+          alert("Data submitted successfully!");
+          this.fetchData(); // Refresh data after successful submission
+        } else {
+          alert("Not updated properly. Please try again...");
+        }
+      })
+      .catch((error) => {
+        alert(`An error occurred: ${error.message}`);
+      });
+  };
 
   render() {
-    const { data, loaded, error } = this.state;
+    const { data, loaded, placeholder, error, columns } = this.state;
+
     return (
-      <div>
-        Hello from teams
-        <ul>
-            {this.state.data.map(each => {
-                return (
-                    <li key={each.id}>
-                        {each.name} - {each.group} - {each.date}
-                    </li>
-                );
-            })}
-        </ul>
-        <label htmlFor="textInput"><b>Insert Teams:</b></label>
-        <Form onSubmit={this.handleFormSubmit} />
+      <div className="container_custom">
+        <div className="table-container_custom">
+          {/* Check for loading state and errors */}
+          {!loaded && !error && <div>{placeholder}</div>}
+          {error && <div style={{ color: 'red' }}>{error}</div>}
+          {loaded && <TableContainer columns={columns} data={data} />}
+        </div>
+        <div className="form-container_custom">
+          <label htmlFor="textInput_custom">
+            <b>Insert Teams:</b>
+          </label>
+          <Form onSubmit={this.handleFormSubmit} />
+        </div>
       </div>
     );
   }
