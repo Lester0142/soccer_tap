@@ -11,14 +11,24 @@ export const getColumnTeam = () => [
     accessor: "date",
     Cell: ({ value }) => {
       // Format date
+      try{
       const date = new Date(value);
       return format(date, "dd/MM");
+      } catch (error) {
+        return value
+      }
     },
   },
   {
     Header: "Group",
     accessor: "group",
     Filter: SelectColumnFilter,
+  },
+  {
+    Header: "Actions", // This is where we add the edit icon
+    Cell: "action_button",
+    disableFilters: true, // Disable filtering for this column
+    disableSortBy: true,  // Disable sorting for this column
   },
 ];
 
@@ -42,6 +52,12 @@ export const getColumnMatch = () => [
   {
     Header: "Away Goals",
     accessor: "goal_two",
+  },
+  {
+    Header: "Actions", // This is where we add the edit icon
+    Cell: "action_button",
+    disableFilters: true, // Disable filtering for this column
+    disableSortBy: true,  // Disable sorting for this column
   },
 ];
 

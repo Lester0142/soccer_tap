@@ -2,6 +2,7 @@ html,
 body {
   height: 100%;
   margin: 0;
+  width:100%;
 }
 
 .container_custom {
@@ -11,12 +12,12 @@ body {
 }
 
 .table-container_custom {
-  flex: 0.8; /* Takes up available space */
+  flex: 0.7; /* Takes up available space */
   overflow: auto; /* Adds scroll if needed */
-  width: 100%;
 }
 
 .form-container_custom {
+  margin:5px;
   padding: 16px;
   background-color: #f0f0f0; /* Optional: background color for the form area */
 }

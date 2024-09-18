@@ -4,12 +4,12 @@ from django.db.models.expressions import Window
 from django.db.models.functions import RowNumber
 from django.db.models import F
 import json
+import html
 
 def log_actions(text: str) -> None:
     """
     log actions in text file
     """
-    print(text)
     f = open('zlog_actions.txt', 'a+')
     f.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " | " + text + "\n")
     f.close()
@@ -18,11 +18,12 @@ def log_actions(text: str) -> None:
 def get_post_body(request: any) -> str:
     """"
     extract and return text body of POST request
-    TODO: sanitize input
+    sanitize input using html
     """
     data  = json.loads(request.body)
     text_input = data.get('content', None)
-    return text_input
+    text_san_input = html.escape(text_input)
+    return text_san_input
     
 
 def preprocess_team_text(text_input: str, update: bool=False) -> list[list[str, date, int]]:
@@ -139,7 +140,7 @@ def insert_team_to_result(team_name: models, team_date: date, team_group: int) -
     """
     helper funtion to insert newly added team into result tables
     """
-    Result.objects.get_or_create(name=team_name, goal=0, date=team_date, group=team_group, win=0, draw=0, loss=0, point=0, point_alt=0, rank=0)
+    Result.objects.get_or_create(name=team_name, goal=0, date=team_date, group=team_group, win=0, draw=0, loss=0, point=0, point_alt=0, rank=0, game=0)
     group_ranker()
     return
 

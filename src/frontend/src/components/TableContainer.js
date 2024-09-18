@@ -1,23 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTable, useSortBy, useFilters, usePagination } from "react-table";
 import {
   Container,
   Table,
   Button,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Input,
 } from "reactstrap";
-import { Filter, DefaultColumnFilter } from "./Filter";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { FaEdit, FaTrash} from "react-icons/fa";
+import {format} from "date-fns";
+import { Filter, DefaultColumnFilter, SelectColumnFilter } from "./Filter";
 
-const TableContainer = ({ columns, data }) => {
-  // Determine if the rank column exists
+const TableContainer = ({ columns, data, saveChanges, deleteEntry }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalDelOpen, setIsModalDelOpen] = useState(false);
+  const [selectedRowData, setSelectedRowData] = useState(null);
+  const [originalRowData, setOriginaldRowData] = useState(null);
+
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const toggleModalDel = () => setIsModalDelOpen(!isModalDelOpen);
+
+  const handleEditRow = (rowData) => {
+    let rowData_temp = { ...rowData };
+    try{
+      rowData_temp["date"] = format(rowData_temp["date"], "dd/MM");
+      console.log(rowData["date"])
+      console.log(rowData_temp["date"])
+    } catch (error){}
+    setOriginaldRowData(rowData_temp);
+    setSelectedRowData(rowData_temp);
+    toggleModal();
+  };
+
+  const handleDelRow = (rowData) => {
+    let rowData_temp = { ...rowData };
+    try{
+      rowData_temp["date"] = format(rowData_temp["date"], "dd/MM");
+      console.log(rowData["date"])
+      console.log(rowData_temp["date"])
+    } catch (error){}
+    setOriginaldRowData(rowData_temp);
+    setSelectedRowData(rowData_temp);
+    toggleModalDel();
+  };
+
+  const handleInputChange = (e, key) => {
+    setSelectedRowData({
+      ...selectedRowData,
+      [key]: e.target.value,
+    });
+  };
+
+  const clickSave = () => {
+    saveChanges(originalRowData, selectedRowData);
+    toggleModal();
+  };
+
+  const clickDelete = () => {
+    deleteEntry(selectedRowData);
+    toggleModalDel();
+  }
+
   const rankColumnExists = columns.some((col) => col.accessor === "rank");
 
   const initialSortBy = rankColumnExists
-    ? [{ id: "rank", desc: false }] // Default to ascending sort
-    : []; // No initial sort if rank column doesn't exist
+    ? [{ id: "rank", desc: false }]
+    : [];
 
   const {
     getTableProps,
@@ -41,7 +92,7 @@ const TableContainer = ({ columns, data }) => {
       data,
       initialState: {
         pageIndex: 0,
-        pageSize: 10, // You can adjust the initial page size here
+        pageSize: 10,
         sortBy: initialSortBy,
       },
       defaultColumn: { Filter: DefaultColumnFilter },
@@ -52,10 +103,9 @@ const TableContainer = ({ columns, data }) => {
   );
 
   const generateSortingIndicator = (column) => {
-    return column.isSorted ? (column.isSortedDesc ? " 🔽" : " 🔼") : " ⇵";
+    return column.render("Header") === "Actions" ? " " : column.isSorted ? (column.isSortedDesc ? " 🔽" : " 🔼") : " ⇵";
   };
 
-  // Define a function to determine if a row should be highlighted
   const getRowClassName = (row) => {
     if (rankColumnExists) {
       const { rank } = row.original;
@@ -65,7 +115,7 @@ const TableContainer = ({ columns, data }) => {
   };
 
   return (
-    <Container style={{ marginTop: 20 }}>
+    <Container fluid style={{ marginTop: 20 }}>
       <Table bordered hover {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -89,7 +139,23 @@ const TableContainer = ({ columns, data }) => {
             return (
               <tr {...row.getRowProps()} className={getRowClassName(row)}>
                 {row.cells.map((cell) => (
-                  <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                  <td {...cell.getCellProps()}>
+                    {cell.render("Cell") === 'action_button' ? (
+                      <><Button
+                        color="primary"
+                        onClick={() => handleEditRow(row.original)}
+                      >
+                        <FaEdit />
+                      </Button><Button
+                        color="secondary"
+                        onClick={() => handleDelRow(row.original)}
+                      >
+                          <FaTrash />
+                        </Button></>
+                    ) : (
+                      cell.render("Cell")
+                    )}
+                  </td>
                 ))}
               </tr>
             );
@@ -97,7 +163,6 @@ const TableContainer = ({ columns, data }) => {
         </tbody>
       </Table>
 
-      {/* Pagination Controls */}
       <div className="pagination-container">
         <Button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {"<<"}
@@ -131,6 +196,65 @@ const TableContainer = ({ columns, data }) => {
           ))}
         </select>
       </div>
+        
+      {/* Edit Modal */}
+      <Modal isOpen={isModalOpen} toggle={toggleModal}>
+        <ModalHeader toggle={toggleModal}>Edit Row</ModalHeader>
+        <ModalBody>
+          {selectedRowData && (
+            <div>
+              {Object.keys(selectedRowData)
+                .filter((key) => key !== 'id') // Exclude 'id' from being displayed
+                .map((key) => (
+                  <div key={key}>
+                    <label>{key}:</label>
+                    <Input
+                      type="text"
+                      value={String(selectedRowData[key])|| ''}
+                      onChange={(e) => handleInputChange(e, key)} // Handle input change
+                      style={{ marginBottom: '10px' }}
+                    />
+                  </div>
+                ))}
+            </div>
+          )}
+        </ModalBody>
+        <ModalFooter>
+          <Button color="secondary" onClick={toggleModal}>
+            Cancel
+          </Button>
+          <Button color="primary" onClick={clickSave}>
+            Save Changes
+          </Button>
+        </ModalFooter>
+      </Modal>
+        
+      {/* Delete Modal */}
+      <Modal isOpen={isModalDelOpen} toggle={toggleModalDel}>
+        <ModalHeader toggle={toggleModalDel}>Delete Row</ModalHeader>
+        <ModalBody>
+          {selectedRowData && (
+            <div>
+            {Object.keys(selectedRowData)
+              .filter((key) => key !== 'id') // Exclude 'id' from being displayed
+              .map((key) => (
+                <div key={key}>
+                  <label>{key}:</label>
+                  <span style={{ marginLeft: '10px' }}>{String(selectedRowData[key]) || 'N/A'}</span> {/* Display value without input */}
+                </div>
+              ))}
+          </div>
+          )}
+        </ModalBody>
+        <ModalFooter>
+          <Button color="secondary" onClick={toggleModalDel}>
+            Cancel
+          </Button>
+          <Button color="primary" onClick={clickDelete}>
+            Delete
+          </Button>
+        </ModalFooter>
+      </Modal>
     </Container>
   );
 };

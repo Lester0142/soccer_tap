@@ -38,9 +38,7 @@ class Home extends Component {
     const columns = getColumnResult();
     const { data, loaded, error } = this.state;
     return (
-      <Container style={{ marginTop: 20 }}>
-        <TableContainer columns={columns} data={data} />
-      </Container>
+      <TableContainer columns={columns} data={data} saveChanges={null} deleteEntry={null} />
     );
   }
 }

@@ -226,3 +226,131 @@ thirdTeam2 fourthTeam2 22 222
 
 2024-09-17 17:30:34 | [insert]: ['firstTeam2', 'secondTeam2', 2, 20]
 2024-09-17 17:30:34 | [insert]: ['thirdTeam2', 'fourthTeam2', 22, 222]
+2024-09-18 05:15:23 | [raw input]: firstTeam 17/05 2
+secondTeam 07/02 2
+thirdTeam 24/04 1
+fourthTeam 24/01 1
+
+2024-09-18 05:15:23 | [insert]: ['firstTeam', datetime.date(2000, 5, 17), 2]
+2024-09-18 05:15:23 | [insert failed]: IntegrityError('NOT NULL constraint failed: backend_result.game')
+2024-09-18 05:15:33 | [raw input]: firstTeam 17/05 2
+secondTeam 07/02 2
+thirdTeam 24/04 1
+fourthTeam 24/01 1
+2024-09-18 05:15:33 | [insert failed, existed]: ['firstTeam', datetime.date(2000, 5, 17), 2]
+2024-09-18 05:15:33 | [insert]: ['secondTeam', datetime.date(2000, 2, 7), 2]
+2024-09-18 05:15:33 | [insert failed]: IntegrityError('NOT NULL constraint failed: backend_result.game')
+2024-09-18 05:31:38 | [raw input]: firstTeam 17/05 2
+secondTeam 07/02 2
+thirdTeam 24/04 1
+fourthTeam 24/01 1
+
+2024-09-18 05:31:38 | [insert failed, existed]: ['firstTeam', datetime.date(2000, 5, 17), 2]
+2024-09-18 05:31:38 | [insert failed, existed]: ['secondTeam', datetime.date(2000, 2, 7), 2]
+2024-09-18 05:31:38 | [insert]: ['thirdTeam', datetime.date(2000, 4, 24), 1]
+2024-09-18 05:31:38 | [insert]: ['fourthTeam', datetime.date(2000, 1, 24), 1]
+2024-09-18 05:56:37 | [database wiped]: ========== Empty Database ==========
+2024-09-18 06:02:47 | [database wiped]: ========== Empty Database ==========
+2024-09-18 06:09:58 | [database wiped]: ========== Empty Database ==========
+2024-09-18 06:10:03 | [database wiped]: ========== Empty Database ==========
+2024-09-18 06:10:14 | [database wiped]: ========== Empty Database ==========
+2024-09-18 06:12:51 | [database wiped]: ========== Empty Database ==========
+2024-09-18 06:15:44 | [database wiped]: ========== Empty Database ==========
+2024-09-18 07:00:31 | [database wiped]: ========== Empty Database ==========
+2024-09-18 07:00:58 | [raw input]: firstTeam 17/05 2
+secondTeam 07/02 2
+thirdTeam 24/04 1
+fourthTeam 24/01 1
+2024-09-18 07:00:58 | [insert]: ['firstTeam', datetime.date(2000, 5, 17), 2]
+2024-09-18 07:00:58 | [insert]: ['secondTeam', datetime.date(2000, 2, 7), 2]
+2024-09-18 07:00:58 | [insert]: ['thirdTeam', datetime.date(2000, 4, 24), 1]
+2024-09-18 07:00:58 | [insert]: ['fourthTeam', datetime.date(2000, 1, 24), 1]
+2024-09-18 07:01:05 | [database wiped]: ========== Empty Database ==========
+2024-09-18 07:01:12 | [raw input]: firstTeam 17/05 2
+secondTeam 07/02 2
+thirdTeam 24/04 1
+fourthTeam 24/01 1
+
+2024-09-18 07:01:12 | [insert]: ['firstTeam', datetime.date(2000, 5, 17), 2]
+2024-09-18 07:01:12 | [insert]: ['secondTeam', datetime.date(2000, 2, 7), 2]
+2024-09-18 07:01:12 | [insert]: ['thirdTeam', datetime.date(2000, 4, 24), 1]
+2024-09-18 07:01:12 | [insert]: ['fourthTeam', datetime.date(2000, 1, 24), 1]
+2024-09-18 07:01:17 | [database wiped]: ========== Empty Database ==========
+2024-09-18 07:23:24 | [database wiped]: ========== Empty Database ==========
+2024-09-18 07:29:02 | [raw input]: firstTeam 17/05 2
+secondTeam 07/02 2
+thirdTeam 24/04 1
+fourthTeam 24/01 1
+
+2024-09-18 07:29:02 | [insert]: ['firstTeam', datetime.date(2000, 5, 17), 2]
+2024-09-18 07:29:02 | [insert]: ['secondTeam', datetime.date(2000, 2, 7), 2]
+2024-09-18 07:29:02 | [insert]: ['thirdTeam', datetime.date(2000, 4, 24), 1]
+2024-09-18 07:29:02 | [insert]: ['fourthTeam', datetime.date(2000, 1, 24), 1]
+2024-09-18 07:36:34 | [raw input]: firstTeam2 17/05 2
+secondTea2m 07/02 2
+thirdTeam2 24/04 1
+fourthTea2m 24/01 1
+
+2024-09-18 07:36:34 | [insert]: ['firstTeam2', datetime.date(2000, 5, 17), 2]
+2024-09-18 07:36:34 | [insert]: ['secondTea2m', datetime.date(2000, 2, 7), 2]
+2024-09-18 07:36:35 | [insert]: ['thirdTeam2', datetime.date(2000, 4, 24), 1]
+2024-09-18 07:36:35 | [insert]: ['fourthTea2m', datetime.date(2000, 1, 24), 1]
+2024-09-18 08:30:01 | [database wiped]: ========== Empty Database ==========
+2024-09-18 08:30:39 | [raw input]: firstTeam 17/05 2
+secondTeam 07/02 2
+thirdTeam 24/04 1
+fourthTeam 24/01 1
+
+2024-09-18 08:30:39 | [insert]: ['firstTeam', datetime.date(2000, 5, 17), 2]
+2024-09-18 08:30:39 | [insert]: ['secondTeam', datetime.date(2000, 2, 7), 2]
+2024-09-18 08:30:39 | [insert]: ['thirdTeam', datetime.date(2000, 4, 24), 1]
+2024-09-18 08:30:39 | [insert]: ['fourthTeam', datetime.date(2000, 1, 24), 1]
+2024-09-18 08:30:47 | [raw input]: firstTeam secondTeam 0 3
+thirdTeam fourthTeam 1 1
+
+2024-09-18 08:30:47 | [insert]: ['firstTeam', 'secondTeam', 0, 3]
+2024-09-18 08:30:47 | [insert]: ['thirdTeam', 'fourthTeam', 1, 1]
+2024-09-18 09:38:00 | [raw input]: firstTeam fifthTeam 2000-05-17 2
+2024-09-18 09:38:00 | [update failed]: ValueError("invalid literal for int() with base 10: '2000-05-17'")
+2024-09-18 10:12:56 | [raw input]: firstTeam firstTeam2 17/05 2
+2024-09-18 10:12:56 | [update]: ['firstTeam', 'firstTeam2', datetime.date(2000, 5, 17), 2]
+2024-09-18 10:13:03 | [raw input]: firstTeam2 firstTeam2 17/05 3
+2024-09-18 10:13:03 | [update]: ['firstTeam2', 'firstTeam2', datetime.date(2000, 5, 17), 3]
+2024-09-18 10:30:39 | [raw input]: firstTeam2 firstTeam 17/05 3
+2024-09-18 10:30:39 | [update]: ['firstTeam2', 'firstTeam', datetime.date(2000, 5, 17), 3]
+2024-09-18 10:30:51 | [raw input]: firstTeam firstTeam 17/05 434
+2024-09-18 10:30:51 | [update]: ['firstTeam', 'firstTeam', datetime.date(2000, 5, 17), 434]
+2024-09-18 10:52:29 | [raw input]: firstTeam firstTeam2 19/05 4342
+2024-09-18 10:52:29 | [update]: ['firstTeam', 'firstTeam2', datetime.date(2000, 5, 19), 4342]
+2024-09-18 10:53:18 | [raw input]: firstTeam2 firstTeam2 19/05 4342
+2024-09-18 10:53:18 | [update]: ['firstTeam2', 'firstTeam2', datetime.date(2000, 5, 19), 4342]
+2024-09-18 10:53:32 | [raw input]: firstTeam2 firstTeam2 19/08 4342
+2024-09-18 10:53:32 | [update]: ['firstTeam2', 'firstTeam2', datetime.date(2000, 8, 19), 4342]
+2024-09-18 12:05:36 | [raw input]: firstTeam2 firstTeam2 19/10 4342
+2024-09-18 12:05:36 | [update]: ['firstTeam2', 'firstTeam2', datetime.date(2000, 10, 19), 4342]
+2024-09-18 13:19:14 | [raw input]: firstTeam2 firstTeam2 30/10 4342
+2024-09-18 13:19:14 | [update]: ['firstTeam2', 'firstTeam2', datetime.date(2000, 10, 30), 4342]
+2024-09-18 13:19:24 | [raw input]: firstTeam2 firstTeam3 30/10 3
+2024-09-18 13:19:24 | [update]: ['firstTeam2', 'firstTeam3', datetime.date(2000, 10, 30), 3]
+2024-09-18 13:25:09 | [raw input]: firstTeam3 firstTeam 30/10 2
+2024-09-18 13:25:09 | [update]: ['firstTeam3', 'firstTeam', datetime.date(2000, 10, 30), 2]
+2024-09-18 13:25:36 | [raw input]: firstTeam firstTeam 31/01 2
+2024-09-18 13:25:36 | [update]: ['firstTeam', 'firstTeam', datetime.date(2000, 1, 31), 2]
+2024-09-18 13:26:01 | [raw input]: 1 firstTeam secondTeam 4 3
+2024-09-18 13:26:02 | [update]: [1, 'firstTeam', 'secondTeam', 4, 3]
+2024-09-18 13:26:26 | [raw input]: 1 secondTeam secondTeam 4 3
+2024-09-18 13:26:26 | [update]: [1, 'secondTeam', 'secondTeam', 4, 3]
+2024-09-18 13:26:54 | [raw input]: 1 thirdyTeam secondTeam 4 3
+2024-09-18 13:26:54 | [update failed]: DoesNotExist('Team matching query does not exist.')
+2024-09-18 13:27:10 | [raw input]: 1 thirdTeam firstTeam 4 5
+2024-09-18 13:27:10 | [update]: [1, 'thirdTeam', 'firstTeam', 4, 5]
+2024-09-18 13:47:42 | [raw input]: 1 thirdTeam firstTeam 4 5
+2024-09-18 13:47:42 | [delete]: [1, 'thirdTeam', 'firstTeam', 4, 5]
+2024-09-18 13:48:40 | [raw input]: firstTeam firstTeam 2000-01-31 2
+2024-09-18 13:48:40 | [delete failed]: ValueError("invalid literal for int() with base 10: '2000-01-31'")
+2024-09-18 13:48:46 | [raw input]: firstTeam firstTeam 2000-01-31 2
+2024-09-18 13:48:46 | [delete failed]: ValueError("invalid literal for int() with base 10: '2000-01-31'")
+2024-09-18 13:50:27 | [raw input]: firstTeam firstTeam 31/01 2
+2024-09-18 13:50:27 | [delete]: ['firstTeam', 'firstTeam', datetime.date(2000, 1, 31), 2]
+2024-09-18 13:50:42 | [raw input]: secondTeam secondTeam2 07/04 3
+2024-09-18 13:50:42 | [update]: ['secondTeam', 'secondTeam2', datetime.date(2000, 4, 7), 3]
