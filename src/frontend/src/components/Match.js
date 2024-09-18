@@ -65,10 +65,10 @@ class Match extends Component {
       })
       .then((value) => {
         if (value.status === 200) {
-          alert("Data submitted successfully!");
+          alert("Match record(s) have been inserted successfully!");
           this.fetchData(); // Refresh data after successful submission
         } else {
-          alert("Not updated properly. Please try again...");
+          alert("Insert failed. Please try again...");
         }
       })
       .catch((error) => {
@@ -96,7 +96,7 @@ class Match extends Component {
       })
       .then((value) => {
         if (value.status === 200) {
-          alert("Data submitted successfully!");
+          alert("Match record has been updated successfully!");
           this.fetchData(); // Refresh data after successful submission
         } else {
           alert("Not updated properly. Please try again...");
@@ -127,10 +127,10 @@ class Match extends Component {
       })
       .then((value) => {
         if (value.status === 200) {
-          alert("Data submitted successfully!");
+          alert("Match record has been deleted successfully!");
           this.fetchData(); // Refresh data after successful submission
         } else {
-          alert("Not updated properly. Please try again...");
+          alert("Delete failed. Please try again...");
         }
       })
       .catch((error) => {

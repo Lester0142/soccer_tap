@@ -64,10 +64,10 @@ class Team extends Component {
       })
       .then((value) => {
         if (value.status === 200) {
-          alert("Data submitted successfully!");
+          alert("Team(s) have been inserted successfully!");
           this.fetchData(); // Refresh data after successful submission
         } else {
-          alert("Not updated properly. Please try again...");
+          alert("Insert failed. Please try again...");
         }
       })
       .catch((error) => {
@@ -94,7 +94,7 @@ class Team extends Component {
       })
       .then((value) => {
         if (value.status === 200) {
-          alert("Data submitted successfully!");
+          alert("Team information is updated successfully!");
           this.fetchData(); // Refresh data after successful submission
         } else {
           alert("Not updated properly. Please try again...");
@@ -124,10 +124,10 @@ class Team extends Component {
       })
       .then((value) => {
         if (value.status === 200) {
-          alert("Data submitted successfully!");
+          alert("Team has been deleted successfully!");
           this.fetchData(); // Refresh data after successful submission
         } else {
-          alert("Not updated properly. Please try again...");
+          alert("Delete failed. Please try again...");
         }
       })
       .catch((error) => {
