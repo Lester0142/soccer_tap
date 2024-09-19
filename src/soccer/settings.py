@@ -25,27 +25,11 @@ SECRET_KEY = 'django-insecure-fv(*w4(u7up&2b)#3b3bmc+qob1x6cg#$soqjw_1j4t^u!an@=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-CSRF_TRUSTED_ORIGINS = [
-'http://localhost',
-'http://localhost:8000',
-'http://127.0.0.1:8000',
-'http://127.0.0.1',
-'http://0.0.0.0'
-]
+CORS_ALLOWED_ORIGINS = ["http://localhost:8000", "http://127.0.0.1:8000",'https://lestertap2024.azurewebsites.net']
 
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000','http://127.0.0.1:8000','https://lestertap2024.azurewebsites.net']
 
-ALLOWED_HOSTS = [
-'http://localhost',
-'http://localhost:8000',
-'http://127.0.0.1:8000',
-'http://127.0.0.1',
-'http://0.0.0.0',
-'localhost',
-'0.0.0.0',
-'localhost:8000',
-'127.0.0.1',
-'127.0.0.1:8000'
-]
+ALLOWED_HOSTS = ['localhost','127.0.0.1','lestertap2024.azurewebsites.net',]
 
 
 # Application definition
