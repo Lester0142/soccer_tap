@@ -71,6 +71,11 @@ export const getColumnResult = () => [
     accessor: "rank",
   },
   {
+    Header: "Group",
+    accessor: "group",
+    Filter: SelectColumnFilter,
+  },
+  {
     Header: "Name",
     accessor: "name",
   },
