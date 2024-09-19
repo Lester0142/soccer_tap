@@ -1,5 +1,7 @@
 # Soccer Tracker
 
+Azure link: https://lestertap2024.azurewebsites.net/
+
 To run:
 
 from root of project:
