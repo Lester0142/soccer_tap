@@ -22,9 +22,10 @@ const AppNavbar = ({ onSelect }) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          "X-CSRFToken": getCookie("csrftoken"),
+          "X-CSRFToken": CSRF_TOKEN,
         },
         body: JSON.stringify({ content: "delete" }), // Send the item to be deleted
+        credentials: "same-origin"
       })
         .then((response) => response.json())
         .then((value) => {
@@ -54,8 +55,9 @@ const AppNavbar = ({ onSelect }) => {
       method: 'GET',
       headers: {
         // 'Content-Type': 'application/json', // Remove or modify if not necessary for file download
-        "X-CSRFToken": getCookie("csrftoken"), // Optional, for CSRF protection if enabled
-      }
+        "X-CSRFToken": CSRF_TOKEN, // Optional, for CSRF protection if enabled
+      },
+      credentials: "same-origin"
     })
       .then(response => {
         if (response.ok) {

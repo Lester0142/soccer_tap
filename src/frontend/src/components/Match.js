@@ -53,7 +53,7 @@ class Match extends Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRFToken": getCookie("csrftoken"),
+        "X-CSRFToken": CSRF_TOKEN,
       },
       body: JSON.stringify({ content: textValue }),
     })
@@ -84,7 +84,7 @@ class Match extends Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRFToken": getCookie("csrftoken"),
+        "X-CSRFToken": CSRF_TOKEN,
       },
       body: JSON.stringify({content: post_mess}),
     })
@@ -115,7 +115,7 @@ class Match extends Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRFToken": getCookie("csrftoken"),
+        "X-CSRFToken": CSRF_TOKEN,
       },
       body: JSON.stringify({content: post_mess}),
     })
