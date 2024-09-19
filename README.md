@@ -5,7 +5,7 @@ To run:
 from root of project:
 
 ```
-docker build -t tap .
+docker build --no-cache -t tap .
 ```
 
 ```
